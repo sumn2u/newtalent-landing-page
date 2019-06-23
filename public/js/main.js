@@ -96,6 +96,7 @@ $(function() {
 		var searchQuery = new URLSearchParams(decodeURI(location.search))
 		var catId = params.get('catid');
 		var searchText = searchQuery.get('search')
+		var courseId = searchQuery.get('courseId')
 		if(catId) courses= courses.filter((course) => course.categoryid === parseInt(catId))
 		if (searchText) { 
 			$('#search-bar').val(searchText)
@@ -109,6 +110,23 @@ $(function() {
 		$.each(courses, function (i, course) {
 			coursesCollection.push(creatSingleCourse(course))
 		})
+		if(courseId){
+			var getCourseDetails = 'https://study.newtalenthome.com/webservice/restjson/server.php?wsfunction=core_course_get_contents&wstoken=73edbd081d7290208946844f2f3b6ec2&courseid=' +courseId+'&moodlewsrestformat=json';
+			var course = courses.filter((course) => course.id === parseInt(courseId))
+			var courseDetails = []
+			$.getJSON(getCourseDetails).done(function(details){
+				$("#course-intro").text(course[0].displayname)
+				$("#course-description").html(course[0].summary)
+				$.each(details, function (i, detail) {
+					courseDetails.push('<li class="justify-content-between d-flex"> ' +
+						'<p>'+detail.name+'</p>'+
+						'<a class="btn text-uppercase" href="https://study.newtalenthome.com/course/view.php?id=' + courseId +'&section=1" target="_blank">View Details</a>'+
+					'</li>')
+				})
+				$('.course-list').html('').append(courseDetails.join(''));
+				// console.log(course[0], 'course ==>')
+			})
+		}
       
 		$('.dropdown-menu').html('').append(courseCategories.join(''));
 
@@ -136,7 +154,7 @@ $(function() {
 			'<p class="name">'+course.shortname+'</p>' +
 			'<p class="value"></p>' +
 			'</div>' +
-			'<a href="course-details.html">' +
+			'<a href="course-details.html?courseId='+course.id+'">' +
 			'<h4> ' + course.displayname+'</h4>' +
 			'</a>' +
 			'<div class="bottom d-flex mt-15">' +
