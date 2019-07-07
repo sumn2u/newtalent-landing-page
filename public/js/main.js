@@ -94,6 +94,13 @@ $(function() {
 		var coursesCollection = [];
 		var params = new URLSearchParams(location.search);
 		var searchQuery = new URLSearchParams(decodeURI(location.search))
+		var userInfo = params.get('userinfo')
+		if (userInfo){
+
+			$('#sign-in-user').text(userInfo)
+			// $('#sign-in-user').attr("style", "display:none")
+			// $('#sign-in-user-name').text(userInfo).attr("style", "display:block")
+		}
 		var catId = params.get('catid');
 		var searchText = searchQuery.get('search')
 		var courseId = searchQuery.get('courseId')
@@ -124,6 +131,11 @@ $(function() {
 					'</li>')
 				})
 				$('.course-list').html('').append(courseDetails.join(''));
+				var coursePrice = course[0].idnumber.match(/Rs-/) ? course[0].idnumber.replace(/Rs-/g, '') : '';
+				//console.log(course[0].idnumber.match(/Rs-/) ? course[0].idnumber.replace(/Rs-/g, '') : '', 'course[0] ==>')
+				if (coursePrice) {$('#course-fee').text('Rs : ' + coursePrice)}
+				// console.log(course[0], 'course[0] ==>')
+				$('.enroll-course').attr('href', 'https://study.newtalenthome.com/course/view.php?id=' + course[0].id)
 				// console.log(course[0], 'course ==>')
 			})
 		}
@@ -131,6 +143,7 @@ $(function() {
 		$('.dropdown-menu').html('').append(courseCategories.join(''));
 
 		$('.owl-carousel').html('').append(coursesCollection.join(''));
+		$('.all-courses').html('').append(coursesCollection.join(''));
 		//move carusol
 		moveCarusel()
 		// owl - carousel
@@ -143,8 +156,29 @@ $(function() {
 		// }
 		// console.log(a1, a2, 'likes')
 	});
-
+	$('#sign-in-user').on('click', function(){
+		if($('#sign-in-user').text() === "Sign In"){
+			//$('.login-container-wrapper').attr("style", "display:block")
+		}else{
+			location.href ="https://study.newtalenthome.com"
+		}
+		
+	})
+	
+	$('.cancel-login').on('click',function(){
+		$('.login-container-wrapper').attr("style", "display:none")
+	})
 	function creatSingleCourse(course){
+		var coursename = course.idnumber;
+		var isPriceAvailable = false;
+		var isPriceHtml = ""
+		if (coursename.match(/Rs-/)){
+			isPriceAvailable = true
+			//coursename.replace(/Rs-/g, '')
+		} 
+		// <button class="btn text-uppercase show-more-courses"> View allCourses </button>
+		isPriceHtml = isPriceAvailable ? '<button class="click-btn btn btn-default course-price"> Rs.' + coursename.replace(/Rs-/g, '') + '</button> <img src="../img/cart.png" class="add-to-cart img-cart"  data-name="' + course.displayname + '" data-price="' + coursename.replace(/Rs-/g, '') + '" product-image="img/popular-course/p3.jpg" width="25px" height="25px" >' : ''
+		// console.log(isPriceAvailable, 'isPriceAvailable ==>')
 		return '<div class="single-popular-course">'+
 			'<div class="thumb" >'+
 				'<img class="f-img img-fluid mx-auto" src="img/popular-course/p3.jpg" alt="" />'+
@@ -165,7 +199,7 @@ $(function() {
 			'<li><a href="#"><i class="fa fa-star"></i></a></li>' +
 			'<li><a href="#"><i class="fa fa-star"></i></a></li>' +
 			'</ul>' +
-			'<p class="ml-20">25 Reviews</p>' +
+			'<p class="ml-20">25 Reviews</p>  "' + isPriceHtml+
 			'</div>' +
 			'</div>' +
 		'</div >'

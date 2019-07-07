@@ -829,7 +829,7 @@ th {
   -o-transform: translateX(-50%);
   transform: translateX(-50%);
   width: 100%;
-  z-index: 999;
+  z-index: auto;
   text-align: center;
   padding: 5px 20px; }
   @media (max-width: 991px) {
@@ -872,16 +872,18 @@ th {
   /* background: url(../img/home-banner-bg.png) no-repeat; */
   background:linear-gradient(to left, #2f3c8d, #79d7ff);
   background-size: cover;
+  height:428px;
   background-position: center center;
   max-height: 1200px; }
   @media (min-width: 1921px) {
     .home-banner-area .fullscreen {
       align-items: start !important;
       padding-top: 250px;
+      height:428px;
       max-height: 1200px !important; } }
   @media (max-width: 768px) {
     .home-banner-area .fullscreen {
-      height: 700px !important; } }
+      height: 428px !important; } }
 
 @media (max-width: 768px) {
   .home-banner-left {
@@ -911,11 +913,13 @@ th {
     margin-top: 30px; } }
 
 .home-banner-right img {
-  margin-right: auto !important;
-  margin-left: auto !important;
+  margin-right: auto ;
+  margin-left: auto;
+  max-height: 320px !important;
   display: block; }
   @media (max-width: 991px) {
     .home-banner-right img {
+      max-height: 320px !important;
       display: none; } }
 
 .banner-area {
@@ -3391,7 +3395,7 @@ h6 {
 }
 
     .search-container {
-      width: 360px;
+      width: 220px;
       height: 30px;
       margin: 0 auto;
       display: inherit;
@@ -3461,4 +3465,159 @@ h6 {
     text-align: center;
     height: 30px;
     color: white;
+  }
+  .all-courses-show {
+    display: grid;
+    width: 100px;
+    grid-gap: 45px;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .login-container-wrapper {
+  
+    position: fixed;
+    display: none;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-top: 10%;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    z-index: 9999;
+  }
+
+  .login-container {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: white;
+    text-align: center;
+    padding: 50px 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .4);
+    border-radius: 3px;
+  }
+
+  .login-container>.social-login {
+    display: block;
+    width: 50%;
+    margin: 5px auto;
+    text-decoration: none;
+    padding: 10px 15px;
+    color: #fff;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    transition: all .3s ease-in-out;
+  }
+
+  .login-container>.social-login:hover {
+    box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.4);
+  }
+
+  a.fb-login {
+    background-color: #3B5998;
+  }
+
+  a.google-login {
+    background-color: #db4437;
+  }
+
+  .login-container>form {
+    max-width: 250px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  p.seperator {
+    margin: 25px;
+  }
+
+  div.group {
+    margin-top: 15px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  div.group input {
+    width: 100%;
+    padding: 10px 4px;
+    outline: none;
+  }
+
+  a.forget-link {
+    color: black;
+    display: block;
+    margin: 10px 0;
+  }
+
+  input[type="submit"] {
+    padding: 15px 35px;
+    outline: none;
+    border: none;
+    background-color: #20c198;
+    color: white;
+    transition: all .3s ease-in-out;
+  }
+
+  .login-button-wrapper {
+    display: flex;
+  }
+
+  .cancel-login {
+    padding: 15px 35px;
+    outline: none;
+    width: 115px;
+    border: none;
+    background-color: #fff;
+    color: black;
+    transition: all .3s ease-in-out;
+  }
+
+  .cancel-login:hover {
+    cursor: pointer;
+    box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.4);
+  }
+
+  input[type="submit"]:hover {
+    cursor: pointer;
+    box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.4);
+  }
+
+  .course-price {
+    background: linear-gradient(90deg, #2f3c8d 0%, #79d7ff 100%);
+    color: white;
+    margin-left: 10px;
+    /* margin-bottom: 5px; */
+    height: 30px;
+    margin: auto;
+    padding-top: 1px;
+  }
+
+  .hai-shopping-cart:after {
+    bottom: 80%;
+    left: -6%;
+    right: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-bottom-color: white;
+    transform: rotate(270deg);
+    border-width: 18px;
+    margin-left: -18px;
+  }
+
+  .img-cart {
+    display: block;
+    height: 25px !important;
+    width: 25px !important;
+  }
+  .cart{
+    background: transparent;
+    color: white;
+    border: none;
+    width: 45px;
   }

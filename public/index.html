@@ -90,14 +90,16 @@
             <!-- Dropdown -->
             <!-- <li><a href="contacts.html">Contacts</a></li> -->
             
-            <li><a href="https://study.newtalenthome.com/login/index.php">Sign In</a></li>
+            <li><a href="https://study.newtalenthome.com/login/index.php" id="sign-in-user">Sign In</a>
+            <!-- <a href="#" id="sign-in-user-name" style="display: none"></a> -->
+          </li>
 
            
-            <!-- <li>
-              <button class="search">
-                <span class="lnr lnr-magnifier" id="search"></span>
+            <li>
+              <button class="cart avd-share" >
+                <span class="lnr lnr-cart" id="shop-cart"></span>
               </button>
-            </li> -->
+            </li>
           </ul>
         </div>
         <form class="search-container">
@@ -113,17 +115,17 @@
   <!-- ================ start banner Area ================= -->
   <section class="home-banner-area">
     <div class="container">
-      <div class="row justify-content-center fullscreen align-items-center">
+      <div class="row justify-content-center  align-items-center" style="height: 428px;">
         <div class="col-lg-5 col-md-8 home-banner-left">
           <h1 class="text-white">
-            A Home of Learning <br />
+            Home of Learning <br />
           </h1>
           <p class="text-white"> <i>Learn From Anywhere, Anytime </i></p>
-          <p class="mx-auto text-white  mt-20 mb-40">
+          <!-- <p class="mx-auto text-white  mt-20 mb-40">
             In the history of modern astronomy, there is probably no one
             greater leap forward than the building and launch of the space
             telescope known as the Hubble.
-          </p>
+          </p> -->
 
         </div>
         <div class="offset-lg-2 col-lg-5 col-md-12 home-banner-right">
@@ -334,11 +336,41 @@
     </div>
     <div class="row justify-content-center section-title">
       <div class="col-lg-12 text-center">
-        <a href="http://study.newtalenthome.com"><button class="btn text-uppercase show-more-courses"> View all
+        <a href="/all_courses.html"><button class="btn text-uppercase show-more-courses"> View all
             Courses</button> </a>
       </div>
     </div>
   </section>
+
+  <div class="login-container-wrapper ">
+    <div class="login-container">
+      <a href="https://www.facebook.com/v2.8/dialog/oauth?state=19626cba5001b045b1b49ea85cc0069c&scope=public_profile%2Cemail&response_type=code&approval_prompt=auto&redirect_uri=https%3A%2F%2Fstudy.newtalenthome.com%2Fauth%2Fgoogleoauth2%2Ffacebook_redirect.php&client_id=2456984274325301"
+        class="fb-login social-login">
+        Login with Facebook
+      </a>
+      <a href="https://accounts.google.com/o/oauth2/auth?client_id=137928413976-3432dpkkqtfnga0j37krvtlt26coddsa.apps.googleusercontent.com&response_type=code&scope=openid%20profile%20email&redirect_uri=https%3A%2F%2Fstudy.newtalenthome.com%2Fauth%2Flenauth%2Fredirect.php%3Fauth_service%3Dgoogle"
+        class="google-login social-login">
+        Login with Google
+      </a>
+      <p class="seperator">-OR-</p>
+      <form autocomplete="off" action="https://study.newtalenthome.com/login/index.php" method="post" name="form"
+        id="form">
+        <div class="group">
+          <label for="email">Email:</label>
+          <input type="text" name="username">
+        </div>
+        <div class="group">
+          <label for="password">Password:</label>
+          <input type="password" name="password">
+        </div>
+        <a href="" class="forget-link">Forgot password?</a>
+        <div class="login-button-wrapper">
+        <input type="submit" value="Login" id="submit">
+        <input type="button" class="cancel-login" value="Cancel" id="cancel">
+        </div>
+      </form>
+    </div>
+  </div>
   <!-- ================ End Popular Course Area ================= -->
 
   <!-- ================ Start Video Area ================= -->
@@ -782,6 +814,9 @@
       </div>
     </div>
   </section>
+  <div id="div-that-holds-the-iframe">
+
+  </div>
   <!-- ================ start footer Area ================= -->
   <footer class="footer-area section-gap">
 		<div class="container">
@@ -867,6 +902,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
   <script src="js/waypoints.min.js"></script>
   <script src="js/jquery.nice-select.min.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/hai.js"></script>
 </body>
 
 </html>
