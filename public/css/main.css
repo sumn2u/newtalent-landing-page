@@ -3606,8 +3606,8 @@ h6 {
     pointer-events: none;
     border-bottom-color: white;
     transform: rotate(270deg);
-    border-width: 18px;
-    margin-left: -18px;
+    border-width: 16px;
+    margin-left: -16px;
   }
 
   .img-cart {
@@ -3620,4 +3620,7 @@ h6 {
     color: white;
     border: none;
     width: 45px;
+  }
+  #course-fee{
+    display: inherit;
   }

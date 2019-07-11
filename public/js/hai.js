@@ -5,7 +5,8 @@ var shoppingCart = (function () {
     // Private methods and properties
     var cart = [];
 
-    function Item(name, price, count, image) {
+    function Item(courseid, name, price, count, image) {
+        this.courseid = courseid
         this.name = name
         this.price = price
         this.count = count
@@ -30,10 +31,11 @@ var shoppingCart = (function () {
     // Public methods and properties
     var obj = {};
 
-    obj.addItemToCart = function (name, price, count, image) {
+    obj.addItemToCart = function (courseid, name, price, count, image) {
         for (var i in cart) {
-            if (cart[i].name === name) {
-                cart[i].count += count;
+            // console.log(cart[i].courseid, courseid, courseid === cart[i].courseid)
+            if (cart[i].courseid === courseid) {
+                cart[i].count = count;
                 saveCart();
                 return;
             }
@@ -41,7 +43,7 @@ var shoppingCart = (function () {
 
         // console.log("addItemToCart:", name, price, count, image);
 
-        var item = new Item(name, price, count, image);
+        var item = new Item(courseid, name, price, count, image);
         // console.log(item, 'item ==>')
         cart.push(item);
         saveCart();
@@ -58,9 +60,9 @@ var shoppingCart = (function () {
     };
 
 
-    obj.removeItemFromCart = function (name) { // Removes one item
+    obj.removeItemFromCart = function (courseid) { // Removes one item
         for (var i in cart) {
-            if (cart[i].name === name) { // "3" === 3 false
+            if (cart[i].courseid === courseid) { // "3" === 3 false
                 cart[i].count--; // cart[i].count --
                 if (cart[i].count === 0) {
                     cart.splice(i, 1);
@@ -72,9 +74,9 @@ var shoppingCart = (function () {
     };
 
 
-    obj.removeItemFromCartAll = function (name) { // removes all item name
+    obj.removeItemFromCartAll = function (courseid) { // removes all item name
         for (var i in cart) {
-            if (cart[i].name === name) {
+            if (cart[i].courseid === courseid) {
                 cart.splice(i, 1);
                 break;
             }
@@ -294,6 +296,17 @@ var initHAIJS = function (clientId) {
         btn.classList.add('lnr')
         btn.classList.add('lnr-cart')
         btn.classList.add('cart')
+        btn.style.display = 'inherit';
+        var spanCount = document.createElement('span');
+        spanCount.classList.add('badge');
+        spanCount.id= 'cart-total-top';
+        spanCount.style.backgroundColor = 'rgb(99, 148, 248)'
+        spanCount.style.borderRadius ='10px'
+        spanCount.style.color = 'white';
+        spanCount.style.fontSize = '10px';
+        spanCount.textContent = '0';
+        spanCount.style.marginLeft = '3px';
+        spanCount.style.paddingBottom = '4px';
         // btn.style.width = '25px';
         // btn.style.height = '25px';
         // btn.style.borderRadius = '45%';
@@ -306,7 +319,7 @@ var initHAIJS = function (clientId) {
         // btn.style.fontWeight = '200';
         // btn.style.fontSize = '110%';
         // btn.style.boxShadow = '2px 2px 10px #605F60';
-
+        btn.append(spanCount)
         btn.addEventListener("click", function () {
             var uid = localStorage.avd_uid || 'uyubbb';
             if (!uid) {
@@ -354,11 +367,12 @@ var initHAIJS = function (clientId) {
         menu.style.borderRadius = '3px';
         menu.style.display = 'none';
         menu.style.zIndex = '1';
-        menu.style.top = '-24px';
+        menu.style.top = '-20px';
         menu.style.marginLeft = '1em';
         menu.style.padding = '15px';
         menu.style.background = '#fff';
         menu.style.position = 'absolute';
+        menu.style.minHeight = '200px';
         menu.style.left = '32px'
 
         var shoppingCartHeader = document.createElement('div');
@@ -406,7 +420,7 @@ var initHAIJS = function (clientId) {
         shoppingCartTotalCount.classList.add('main-color-text');
         shoppingCartTotalCount.style.color = '#6394f8';
         shoppingCartTotalCount.id = 'total-cart';
-        shoppingCartTotalCount.textContent = '2.25';
+        shoppingCartTotalCount.textContent = '0';
 
         shoppingCartTotalContainer.append(shoppingCartTotal)
         shoppingCartTotalContainer.append(shoppingCartTotalCount)
@@ -427,6 +441,7 @@ var initHAIJS = function (clientId) {
         var checkoutButton = document.createElement('a');
         checkoutButton.classList.add('hai-checkout-button');
         // checkoutButton.classList.add('show-more-courses')
+        checkoutButton.id = 'hai-checkout-button';
         checkoutButton.href = '#';
         checkoutButton.textContent = 'Checkout';
         var checkoutButtonStyle = checkoutButton.style;
@@ -444,7 +459,7 @@ var initHAIJS = function (clientId) {
         menu.append(shoppingCartHeader)
         menu.append(shoppingCartItemContainer)
         menu.append(checkoutButton)
-
+        
         // var tb = document.createElement('input');
         // tb.setAttribute('readonly', '');
         // tb.setAttribute('value', 'please wait..');
@@ -459,11 +474,11 @@ var initHAIJS = function (clientId) {
         menu.append(shareDiv());
 
         container.append(menu);
-
+        // $('.hai-shopping-cart-total').append(menu)
         return container;
     }
 
-    function displayCart(menu) {
+    function displayCart(menu, isCheckoutPage) {
         // Array.from(document.getElementsByClassName("hai-shopping-cart"))
         //   .forEach(element => element.remove());
         var cartArray = shoppingCart.listCart();
@@ -474,7 +489,7 @@ var initHAIJS = function (clientId) {
 
                 +
                 "<span class='badge item-quantity-count delete-item' data-name='" +
-                cartArray[i].name + "' style='background-color: #6394f8;border-radius: 10px;color: white;display: inline-block;font-size: 12px;line-height: 1;padding: 3px 7px;text-align: center;vertical-align: middle;white-space: nowrap;position: absolute;margin-left: 140px;margin-top: 4px;background-color: tomato;'>X</span>" +
+                cartArray[i].name + "' data-course-id='" + cartArray[i].courseid+ "' style='background-color: #6394f8;border-radius: 10px;color: white;display: inline-block;font-size: 12px;line-height: 1;padding: 3px 7px;text-align: center;vertical-align: middle;white-space: nowrap;position: absolute;margin-left: 140px;margin-top: 4px;background-color: tomato;'>X</span>" +
                 "<span class='badge' style='background-color: #6394f8;border-radius: 10px;color: white;display: inline-block;font-size: 12px;line-height: 1;padding: 3px 7px;text-align: center;vertical-align: middle;white-space: nowrap;'>" + cartArray[i].count + "</span>" +
                 "<img src='" + cartArray[i].image + "' alt='item1' style='float: left; margin-right: 12px; height:75px; width:96px;' />" +
                 "<span class='item-name' style='display:block;padding-top: 10px;font-size: 16px;'>" + cartArray[i].name + "</span>" +
@@ -486,15 +501,35 @@ var initHAIJS = function (clientId) {
         // debugger;
         if (menu) {
             menu.childNodes.forEach(function (item) {
+                
                 if (item.className === 'hai-shopping-cart-items') {
                     item.innerHTML = output;
                 }
+                if (item.className === 'shopping-cart-items-checkout'){
+                     item.innerHTML = output;
+                }
+                // console.log(output, 'output')
+               
                 if (item.className === 'shopping-cart-header') {
                     item.childNodes[1].textContent = shoppingCart.countCart();
-                    item.childNodes[2].lastElementChild.textContent = 'Rs.'+ shoppingCart.totalCart();
+                     item.childNodes[2].lastElementChild.textContent  = 'Rs.' + shoppingCart.totalCart();
+                    // debugger
+                }
+                if (item.className === 'shopping-cart-header-checkout') {
+                    item.childNodes[2].textContent = shoppingCart.countCart();
+                    item.childNodes[4].lastElementChild.textContent = 'Rs.' + shoppingCart.totalCart();
                     // debugger
                 }
             })
+           
+         
+        }
+        if(cartArray.length > 0){
+            document.getElementById('cart-total-top').textContent = shoppingCart.countCart();
+            document.getElementById('hai-checkout-button').style.display = 'block';
+        }else{
+             document.getElementById('cart-total-top').textContent = shoppingCart.countCart();
+             document.getElementById('hai-checkout-button').style.display = 'none';
         }
         //   document.getElementById('show-cart').innerHTML = output;
         //   document.getElementById('count-cart').innerHTML = shoppingCart.countCart();
@@ -513,6 +548,7 @@ var initHAIJS = function (clientId) {
         x.after(getButton(title, info, image, url));
         x.remove();
     })
+
 
     // var carts = document.querySelectorAll(".add-to-cart");
     // if (!carts || !carts.length) {
@@ -565,16 +601,104 @@ var initHAIJS = function (clientId) {
     // }, false);
      $(document).on('click', ".add-to-cart", function (event) {
          event.preventDefault();
-         var name = $(this).attr("data-name");
+         var name = $(this).attr("data-name").trim();
          var price = Number($(this).attr("data-price"));
          var image = $(this).attr('product-image');
-         shoppingCart.addItemToCart(name, price, 1, image);
+         var courseid = $(this).attr('data-course-id')
+         if (courseid){
+         shoppingCart.addItemToCart(courseid, name, price, 1, image);
+         }
          var menu = document.querySelectorAll('.hai-shopping-cart.active');
          displayCart(menu[0])
+         $(this).notify(
+            ""+name+" added to cart", {
+                 position: "left",
+                 className: "success"
+             }
+         );
          //  displayCart();
      });
+     $(document).on('click', ".delete-item", function (event) {
+         event.preventDefault();
+         var courseid = $(this).attr("data-course-id");
+         shoppingCart.removeItemFromCart(courseid);
+         $(this).parent().remove();
+         //  var price = Number($(this).attr("data-price"));
+         //  var image = $(this).attr('product-image');
+         //  shoppingCart.addItemToCart(name, price, 1, image);
+         var menu = document.querySelectorAll('.hai-shopping-cart.active');
+         displayCart(menu[0])
+         var menu2 = document.querySelectorAll('.shopping-cart-checkout-page');
+         displayCart(menu2[0])
+         //  displayCart();
+     });
+                //   <form action="http://202.166.194.123:7979/WebCheckout/Checkout" id="checkout-item" method="post">
+                //         <input type="hidden" name="TokenId" id="checkout-token" value="201907031509221640">
+                //         <input type="hidden" name="MerchantCode" value="NEWTH">
+                //         <input type="hidden" name="RefId" id="checkout-reference" value="Ref-9901">
+                //         <input type="hidden" name="TranAmount" id="checkout-amount" value="10.75">
+                //         <input type="hidden" name="Source" value="W">
+                //         <input type="submit" value="Web Checkout">
+
+                //     </form>
+
+    var menu = document.querySelectorAll('.shopping-cart-checkout-page')
+    displayCart(menu[0], true)
+     $(document).on('click', '.hai-checkout-button', function(){
+         if (location.pathname.includes('checkout.html')){
+               var amount = document.getElementById('total-cart').textContent.replace('Rs.', '');
+              getToken(amount).then(function (result) {
+                  $('#checkout-token').val(result.TokenId);
+                  $('#checkout-reference').val(result.RefId);
+                  $('#checkout-amount').val(amount);
+                // console.log(document.forms["checkout-item"], 'form')
+                //   setTimeout(function () {
+                     
+                      document.forms["checkout-item"].submit();
+                //   }, 1000);
+                 
+              }).catch(function (error) {
+                  console.log(error, 'errror')
+              })
+
+         }else{
+            location.href='/checkout.html'
+         }
+        
+        
+     })
 
 }
+ function getToken(amount) {
+     return new Promise(function (resolve, reject) {
+     var parameters = {
+         "MerchantCode": "NEWTH",
+         "Amount": amount,
+         "RefId": "NTH-" + (new Date).getTime()
+     };
+     $.ajax({
+         type: "POST",
+         url: "http://202.166.194.123:7979/api/Web/GetToken",
+         headers: {
+             'Authorization': "Basic " + btoa("newth:newth@123"),
+             'Content-Type': 'application/json',
+             'Module': 'TkVXVEg='
+         },
+         crossDomain: true,
+         data: JSON.stringify(parameters),
+         dataType: 'json',
+         success: function (responseData, status, xhr) {
+             resolve(responseData)
+        
+         },
+         error: function (request, status, error) {
+             reject(reject)
+         }
+     });
+     })
+
+ };
+
 initHAIJS('HLcDRAQbH6dq56ba8hehXPLMtuj1')
 
 

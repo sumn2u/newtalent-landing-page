@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+
+<head>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/NTH_Logo.svg" />
+    <!-- Author Meta -->
+    <meta name="author" content="newtalenthome" />
+    <!-- Meta Description -->
+    <meta name="description" content="" />
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="" />
+    <!-- meta character set -->
+    <meta charset="UTF-8" />
+    <!-- Site Title -->
+    <title>Checkout</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:900|Roboto:400,400i,500,700"
+        rel="stylesheet" />
+    <!--
+      CSS
+      =============================================
+    -->
+    <link rel="stylesheet" href="css/linearicons.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/magnific-popup.css" />
+    <link rel="stylesheet" href="css/owl.carousel.css" />
+    <link rel="stylesheet" href="css/nice-select.css">
+    <link rel="stylesheet" href="css/hexagons.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/themify-icons/0.1.2/css/themify-icons.css" />
+    <link rel="stylesheet" href="css/main.css" />
+     <style>
+         @import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
+         @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
+
+         body {
+             font: 14px/22px "Lato", Arial, sans-serif;
+             background: #6394f8;
+         }
+
+         .lighter-text {
+             color: #abb0be;
+         }
+
+         .main-color-text {
+             color: #6394f8;
+         }
+
+         /* *, *:before, *:after {
+           box-sizing: border-box;
+           }
+           body {
+           font: 14px/22px "Lato", Arial, sans-serif;
+           background: #6394f8;
+           }
+           .lighter-text {
+           color: #abb0be;
+           }
+           .main-color-text {
+           color: #6394f8;
+           } */
+         /* nav {
+           padding: 20px 0 40px 0;
+           background: #f8f8f8;
+           font-size: 16px;
+           }
+           nav .navbar-left {
+           float: left;
+           }
+           nav .navbar-right {
+           float: right;
+           }
+           nav ul li {
+           display: inline;
+           /* padding-left: 20px; */
+         /* } */
+         /* nav ul li a {
+           color: #777;
+           text-decoration: none;
+           }
+           nav ul li a:hover {
+           color: black;
+           } */
+         /* .container {
+           margin: auto;
+           width: 80%;
+           } */
+         .badge {
+             background-color: #6394f8;
+             border-radius: 10px;
+             color: white;
+             display: inline-block;
+             font-size: 12px;
+             line-height: 1;
+             padding: 3px 7px;
+             text-align: center;
+             vertical-align: middle;
+             white-space: nowrap;
+         }
+
+         .item-quantity-count {
+             position: absolute;
+             margin-left: 140px;
+             margin-top: 4px;
+             background-color: tomato;
+         }
+
+         .shopping-cart-checkout-page {
+             float: right;
+             background: white;
+             width: 500px;
+             position: relative;
+             border-radius: 3px;
+             box-shadow: 0 10px 40px -14px rgba(0, 0, 0, .25);
+             padding: 20px;
+             
+         }
+
+         .shopping-cart-checkout-page .shopping-cart-header-checkout {
+             border-bottom: 1px solid #e8e8e8;
+             padding-bottom: 15px;
+         }
+
+         .shopping-cart-checkout-page .shopping-cart-header-checkout .shopping-cart-total {
+             float: right;
+         }
+
+         .shopping-cart-checkout-page .shopping-cart-items-checkout {
+             padding-top: 20px;
+             list-style: none;
+             max-height: 180px;
+             overflow-y: scroll;
+         }
+
+         .item-seprator {
+             border-top: 3px single #8c8b8b;
+         }
+
+         .item-seprator.hide {
+             display: none;
+         }
+
+         /* .item-seprator:last-child{
+             display: none;
+           } */
+         .shopping-cart-checkout-page .shopping-cart-items-checkout li {
+             margin-bottom: 6px;
+             padding-top: 5px;
+             position: relative;
+             left: -40px;
+             /* box-shadow: 0 10px 40px -14px rgba(0,0,0,.25); */
+             width: 500px;
+             margin-left: 132px;
+         }
+
+         .shopping-cart-checkout-page .shopping-cart-items-checkout img {
+             float: left;
+             margin-right: 12px;
+         }
+
+         .shopping-cart-checkout-page .shopping-cart-items-checkout .item-name {
+             display: block;
+             padding-top: 10px;
+             font-size: 16px;
+         }
+
+         .shopping-cart-checkout-page .shopping-cart-items-checkout .item-price {
+             color: #6394f8;
+             margin-right: 8px;
+         }
+
+         .shopping-cart-checkout-page .shopping-cart-items-checkout .item-quantity {
+             color: #abb0be;
+         }
+
+         /* .shopping-cart:after {
+             bottom: 100%;
+             left: 89%;
+             border: solid transparent;
+             content: " ";
+             height: 0;
+             width: 0;
+             position: absolute;
+             pointer-events: none;
+             border-bottom-color: white;
+             border-width: 8px;
+             margin-left: -8px;
+         } */
+
+         .cart-icon-checkout {
+             color: #515783;
+             font-size: 30px;
+             margin-right: 7px;
+             float: left;
+              width: 25px;
+              height: 25px;
+              padding: 5px;
+         }
+
+         .button {
+             background: #6394f8;
+             color: white;
+             text-align: center;
+             padding: 12px;
+             text-decoration: none;
+             display: block;
+             border-radius: 3px;
+             font-size: 16px;
+             margin: 25px 0 15px 0;
+         }
+
+         .button:hover {
+             background: #729ef9;
+         }
+
+         .clearfix:after {
+             content: "";
+             display: table;
+             clear: both;
+         }
+         .map-wrap{
+             display: flex;
+         }
+        
+     </style>
+</head>
+
+<body>
+    <!-- ================ Start Header Area ================= -->
+    <header class="default-header">
+        <nav class="navbar navbar-expand-lg  navbar-light">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="img/NTH_Logo.svg" alt="" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="lnr lnr-menu"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end align-items-center"
+                    id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li><a href="index.html">Home</a></li>
+                        <!-- <li><a href="about.html">About</a></li> -->
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                                Courses
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="courses.html">Arts and Humanities</a>
+                                <a class="dropdown-item" href="courses.html">Business</a>
+                                <a class="dropdown-item" href="courses.html">Computer Science</a>
+                                <a class="dropdown-item" href="courses.html">Data Science</a>
+                                <a class="dropdown-item" href="courses.html">Information Technology</a>
+                                <a class="dropdown-item" href="courses.html">Health</a>
+                                <a class="dropdown-item" href="courses.html">Math and Logic</a>
+                                <a class="dropdown-item" href="courses.html">Personal Development</a>
+                                <a class="dropdown-item" href="courses.html">Physical Science and Engineering</a>
+                                <a class="dropdown-item" href="courses.html">Social Science</a>
+                                <a class="dropdown-item" href="courses.html">Language Learning</a>
+                                <a class="dropdown-item" href="courses.html">Degrees and Certificates</a>
+                            </div>
+                        </li>
+                        <li><a href="courses.html">Corporate E-learning</a></li>
+
+                        <!-- Dropdown -->
+                        <!-- <li><a href="contacts.html">Contacts</a></li> -->
+                        <li>
+                            <button class="cart avd-share">
+                                <span class="lnr lnr-cart" id="shop-cart"></span>
+                            </button>
+                        </li>
+                        <li><a href="#">|</a></li>
+                        <li><a href="https://study.newtalenthome.com/login/index.php">Sign In</a></li>
+
+
+                
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- <div class="search-input" id="search-input-boxsss">
+			<div class="container">
+				<form class="d-flex justify-content-between">
+					<input type="text" class="form-control" id="search-input" placeholder="Search Here" />
+					<button type="submit" class="btn"></button>
+					<span class="lnr lnr-cross" id="close-search" title="Close Search"></span>
+				</form>
+			</div>
+		</div> -->
+    </header>
+    <!-- ================ End Header Area ================= -->
+
+    <!-- ================ start banner Area ================= -->
+    <section class="banner-area">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-12 banner-right">
+                    <h1 class="text-white">
+                        Checkout
+                    </h1>
+                    <p class="mx-auto text-white  mt-20 mb-40">
+                        In the history of modern astronomy, there is probably no one greater leap forward than the
+                        building.
+                    </p>
+                    <div class="link-nav">
+                        <span class="box">
+                            <a href="index.html">Home </a>
+                            <i class="lnr lnr-arrow-right"></i>
+                            <a href="checkout.html">Checkout</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ================ End banner Area ================= -->
+
+    <!-- ================ Start contact-page Area  ================= -->
+    <section class="contact-page-area section-gap">
+        <div class="container">
+            <div class="row">
+                
+                <!-- <div class="col-lg-4 d-flex flex-column address-wrap">
+                    <div class="single-contact-address d-flex flex-row">
+                        <div class="icon">
+                            <span class="lnr lnr-home"></span>
+                        </div>
+                        <div class="contact-details">
+                            <h5>Sarkari Dhara, Kathmandu</h5>
+                            <p>
+                                4th Floor, Sushil Polyclinic and Diagnosis Center
+                            </p>
+                        </div>
+                    </div>
+                    <div class="single-contact-address d-flex flex-row">
+                        <div class="icon">
+                            <span class="lnr lnr-phone-handset"></span>
+                        </div>
+                        <div class="contact-details">
+                            <h5>985-1242550</h5>
+                            <p>Mon to Fri 9am to 6 pm</p>
+                        </div>
+                    </div>
+                    <div class="single-contact-address d-flex flex-row">
+                        <div class="icon">
+                            <span class="lnr lnr-envelope"></span>
+                        </div>
+                        <div class="contact-details">
+                            <h5>newtalenthome@gmail.com</h5>
+                            <p>Send us your query anytime!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <form class="form-area contact-form text-right" id="myForm" action="mailto:test@example.com"
+                        enctype="text/plain">
+                        <div class="row">
+                            <div class="col-lg-6 form-group">
+                                <input name="name" placeholder="Enter your name" onfocus="this.placeholder = ''"
+                                    onblur="this.placeholder = 'Enter your name'"
+                                    class="common-input mb-20 form-control" required="" type="text">
+
+                                <input name="email" placeholder="Enter email address"
+                                    pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
+                                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'"
+                                    class="common-input mb-20 form-control" required="" type="email">
+
+                                <input name="subject" placeholder="Enter subject" onfocus="this.placeholder = ''"
+                                    onblur="this.placeholder = 'Enter subject'" class="common-input mb-20 form-control"
+                                    required="" type="text">
+                            </div>
+                            <div class="col-lg-6 form-group">
+                                <textarea class="common-textarea form-control" name="message"
+                                    placeholder="Enter Messege" onfocus="this.placeholder = ''"
+                                    onblur="this.placeholder = 'Enter Messege'" required=""></textarea>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="alert-msg" style="text-align: left;"></div>
+                                <button class="btn" style="float: right;">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div> -->
+            <div class="map-wrap" style="width:100%; height: 445px;" id="">
+                   <div class="col-lg-3">
+                       <form action="http://202.166.194.123:7979/WebCheckout/Checkout" id="checkout-item" method="post">
+                           <input type="hidden" name="TokenId" id="checkout-token" value="201907031509221640">
+                           <input type="hidden" name="MerchantCode" value="NEWTH">
+                           <input type="hidden" name="RefId" id="checkout-reference" value="Ref-9901">
+                           <input type="hidden" name="TranAmount" id="checkout-amount" value="10.75">
+                           <input type="hidden" name="Source" value="W">
+                           <input type="submit" value="Proceed Payment">
+
+                       </form>
+                   </div>
+                  <div class="col-lg-6 d-flex flex-column address-wrap">
+                      <div class="shopping-cart-checkout-page">
+                         <div class="shopping-cart-header-checkout">
+                             <i class="fa fa-shopping-cart cart-icon-checkout"></i><span class="badge"
+                                 id="count-cart"></span>
+                             <div class="shopping-cart-total">
+                                 <span class="lighter-text">Total:</span>
+                                 <span class="main-color-text" id="total-cart">Rs. 0</span>
+                             </div>
+                         </div>
+                          <!--end shopping-cart-header -->
+                          <ul id="show-cart" class="shopping-cart-items-checkout">
+                              
+                          </ul>
+                      </div>
+                    </div>
+                    
+                      <!-- <div>You have <span id="count-cart">X</span> items in your cart</div>
+                <div>Total Cart:$<span id="total-cart"></span></div> -->
+                  </div>
+                  </div>
+                <!-- <div class="hai-shopping-cart active"
+                    style="box-shadow: rgba(0, 0, 0, 0.25) 0px 10px 40px -14px; border-radius: 3px; display: block;  padding: 15px; background: rgb(255, 255, 255);  left: 32px;">
+                    <div class="shopping-cart-header"
+                        style="border-bottom: 1px solid rgb(232, 232, 232); padding-bottom: 15px;"><i
+                            class="fa fa-shopping-cart cart-icon"
+                            style="color: rgb(81, 87, 131); font-size: 24px; margin-right: 7px; float: left;"></i><span
+                            class="badge" id="count-cart"
+                            style="background-color: rgb(99, 148, 248); border-radius: 10px; color: white; display: inline-block; font-size: 12px; line-height: 1; padding: 3px 7px; text-align: center; vertical-align: middle; white-space: nowrap;">1</span>
+                        <div class="shopping-cart-total" style="float: right;"><span class="lighter-text"
+                                style="color: rgb(171, 176, 190);">Total : </span><span class="main-color-text"
+                                id="total-cart" style="color: rgb(99, 148, 248);">Rs.250.00</span></div>
+                    </div>
+                    <ul class="hai-shopping-cart-items" id="show-cart"
+                        style="padding-top: 20px; list-style: none; max-height: 180px; overflow-y: scroll;">
+                        <li class="clearfix"
+                            style="margin-bottom: 6px; padding-top: 5px;left: -40px;width: 255px;">
+                            <span class="badge item-quantity-count delete-item" data-name="Entrepreneurship "
+                                style="background-color: #6394f8;border-radius: 10px;color: white;display: inline-block;font-size: 12px;line-height: 1;padding: 3px 7px;text-align: center;vertical-align: middle;white-space: nowrap;position: absolute;margin-left: 140px;margin-top: 4px;background-color: tomato;">X</span><span
+                                class="badge"
+                                style="background-color: #6394f8;border-radius: 10px;color: white;display: inline-block;font-size: 12px;line-height: 1;padding: 3px 7px;text-align: center;vertical-align: middle;white-space: nowrap;">1</span><img
+                                src="img/popular-course/p3.jpg" alt="item1"
+                                style="float: left; margin-right: 12px; height:75px; width:96px;"><span
+                                class="item-name"
+                                style="display:block;padding-top: 10px;font-size: 16px;">Entrepreneurship </span><span
+                                class="item-price" style="color: #6394f8;margin-right: 8px;">Rs.250</span><span
+                                class="item-quantity" style="color: #abb0be;"> Total:250.00 </span>
+                            <hr class="item-seprator" style="display:none">
+                        </li>
+                    </ul><a class="hai-checkout-button" href="#"
+                        style="background: linear-gradient(90deg, rgb(47, 60, 141) 0%, rgb(121, 215, 255) 100%); color: white; text-align: center; padding: 12px; text-decoration: none; display: block; font-size: 12px; margin: 25px 0px 15px;">Checkout</a>
+                    <div></div>-->
+                    
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+    <!-- ================ End contact-page Area ================= -->
+    <section class="registration-area">
+        <div class="container">
+            <!-- Modal -->
+
+            <div class="row align-items-center justify-content-center">
+                <div class="modal fade" id="exampleModalTest" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class=" modal-content">
+                            <span class="course-contact-success" style="display: none;"> Thank you for your interest, we
+                                will reach out soon!</span>
+                            <div class="course-form-section">
+                                <h3 class="text-white">Register as a Trainer</h3>
+                                <p class="text-white">Use this from to register as a trainer at New Talent Home</p>
+                                <form class="course-form-area contact-page-form course-form text-right" id="myForm">
+                                    <div class="form-group col-md-12">
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="Name"
+                                            onfocus="this.placeholder = ''" onblur="this.placeholder = 'Name'" required>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <input type="text" class="form-control" id="subject" name="phone"
+                                            placeholder="Phone Number" onfocus="this.placeholder = ''"
+                                            onblur="this.placeholder = 'Phone Number'" required>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <input type="email" class="form-control" id="email" name="email"
+                                            placeholder="Email Address" onfocus="this.placeholder = ''"
+                                            onblur="this.placeholder = 'Email Address'" required>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <input type="text" class="form-control" id="expertise" name="expertise"
+                                            placeholder="Areas of Expertise" onfocus="this.placeholder = ''"
+                                            onblur="this.placeholder = 'Areas of Expertise'" required>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <textarea id="comments" class="form-control" name="comments"
+                                            placeholder="COMMENTS" onfocus="this.placeholder = ''"
+                                            onblur="this.placeholder = 'COMMENTS'" required></textarea>
+                                    </div>
+
+                                    <p class="terms-and-condition-agree"><input id="terms" type="checkbox" name="terms"
+                                            value="agreed" required /> I have read and agree to the <a target="_blank"
+                                            href="/instructor_terms_and_condition.html"> Terms
+                                            and Condition </a></p>
+                                    <br /><br />
+                                    <div class="col-lg-12 text-center">
+                                        <button class="btn text-uppercase">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ================ start footer Area ================= -->
+    <footer class="footer-area section-gap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-6 single-footer-widget">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="courses.html">Corporate E-learning</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 single-footer-widget">
+                    <h4 class="footer-quick-link"> </h4>
+                    <ul>
+                        <li></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="https://study.newtalenthome.com/login/index.php">Sign In</a></li>
+                    </ul>
+
+                </div>
+                <div class="col-lg-2 col-md-6 single-footer-widget">
+                    <h4 class="footer-quick-link"> </h4>
+                    <ul>
+                        <li></li>
+                        <li><a href="terms_of_use.html">Terms</a></li>
+                        <li><a href="privacy_policy.html">Privacy Policy</a></li>
+                        <li data-toggle="modal" data-target="#exampleModalTest"><a>Join as a Trainer</a></li>
+                    </ul>
+
+                </div>
+                <div class="col-lg-2 col-md-6 single-footer-widget">
+                    <!-- <h4>Resources</h4> -->
+                </div>
+                <div class="col-lg-4 col-md-6 single-footer-widget">
+                    <h4>Newsletter</h4>
+                    <p>You can trust us. we only send promo offers,</p>
+                    <div class="form-wrap" id="mc_embed_signup">
+                        <form target="_blank"
+                            action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                            method="get" class="form-inline">
+                            <input class="form-control" name="EMAIL" placeholder="Your Email Address"
+                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address '"
+                                required="" type="email">
+                            <button class="click-btn btn btn-default text-uppercase">subscribe</button>
+                            <div style="position: absolute; left: -5000px;">
+                                <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
+                            </div>
+
+                            <div class="info"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom row align-items-center">
+                <p class="footer-text m-0 col-lg-8 col-md-12">
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;<script>
+                        document.write(new Date().getFullYear());
+                    </script> All rights reserved
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                </p>
+                <div class="col-lg-4 col-md-12 footer-social">
+                    <a href="https://www.facebook.com/OfficialNewTalentHome" target="_blank"><i
+                            class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-dribbble"></i></a>
+                    <a href="#"><i class="fa fa-behance"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ================ End footer Area ================= -->
+
+    <script src="js/vendor/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous">
+    </script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+    <script src="js/jquery.ajaxchimp.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/parallax.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.sticky.js"></script>
+    <script src="js/hexagons.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+     <script src="js/main.js"></script>
+  <script src="js/notify.js"></script>
+  <script src="js/hai.js"></script>
+</body>
+
+</html>

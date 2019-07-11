@@ -133,7 +133,11 @@ $(function() {
 				$('.course-list').html('').append(courseDetails.join(''));
 				var coursePrice = course[0].idnumber.match(/Rs-/) ? course[0].idnumber.replace(/Rs-/g, '') : '';
 				//console.log(course[0].idnumber.match(/Rs-/) ? course[0].idnumber.replace(/Rs-/g, '') : '', 'course[0] ==>')
-				if (coursePrice) {$('#course-fee').text('Rs : ' + coursePrice)}
+				if (coursePrice) {
+					console.log(course, " course ==>")
+					$('#course-fee').text('Rs : ' + coursePrice);
+					$('#course-fee').append('<img src="../img/cart.png" class="add-to-cart img-cart" data-course-id="'+ course[0].id+'" data-name="'+ course[0].fullname+'" data-price="' + coursePrice + '" product-image="img/popular-course/p3.jpg" width="25px" height="25px">')
+				}
 				// console.log(course[0], 'course[0] ==>')
 				$('.enroll-course').attr('href', 'https://study.newtalenthome.com/course/view.php?id=' + course[0].id)
 				// console.log(course[0], 'course ==>')
@@ -176,8 +180,10 @@ $(function() {
 			isPriceAvailable = true
 			//coursename.replace(/Rs-/g, '')
 		} 
+
+		//console.log(course, 'course ==>')
 		// <button class="btn text-uppercase show-more-courses"> View allCourses </button>
-		isPriceHtml = isPriceAvailable ? '<button class="click-btn btn btn-default course-price"> Rs.' + coursename.replace(/Rs-/g, '') + '</button> <img src="../img/cart.png" class="add-to-cart img-cart"  data-name="' + course.displayname + '" data-price="' + coursename.replace(/Rs-/g, '') + '" product-image="img/popular-course/p3.jpg" width="25px" height="25px" >' : ''
+		isPriceHtml = isPriceAvailable ? '<button class="click-btn btn btn-default course-price"> Rs.' + coursename.replace(/Rs-/g, '') + '</button> <img src="../img/cart.png" class="add-to-cart img-cart" data-course-id="'+course.id+'"  data-name="' + course.displayname + '" data-price="' + coursename.replace(/Rs-/g, '') + '" product-image="img/popular-course/p3.jpg" width="25px" height="25px" >' : ''
 		// console.log(isPriceAvailable, 'isPriceAvailable ==>')
 		return '<div class="single-popular-course">'+
 			'<div class="thumb" >'+
