@@ -36,23 +36,29 @@
 <body>
   <!-- ================ Start Header Area ================= -->
   <header >
-   <div class="search-input" id="search-input-box" style="display: block;">
-     <div class="container">
-       <form class="d-flex justify-content-between">
-         
-         <span class="lnr-info"> <span class="alert-notify">Upcoming Workshop :</span> &nbsp;Advanced Excel Workshop on
-           April 24, 15:00 GMT. <a
-             href="/upcoming_courses.html"><span class="alert-notify"> &nbsp;Learn More >> </span></a></span>
-         <span class="lnr lnr-cross" id="close-search" title="Close Search"></span>
-       </form>
-     </div>
-   </div>
+      
+    <div class="top-bar">
+      <div class="container">
+        <div class="top-bar-left">
+
+        </div>
+        <div class="top-bar-right">
+            <a data-toggle="modal" data-target="#exampleModalTest" href="#" style="padding-right:10px;">Join as a Trainer</a>
+            <button class="cart avd-share" >
+                <span class="lnr lnr-cart" id="shop-cart" style="padding-right:10px;"></span>
+            </button>
+          <a href="https://study.newtalenthome.com/login/index.php" id="top-bar-sign-in" style="padding-right:10px;">Sign In</a>
+        </div>
+      </div>
+    </div>
     <nav class="default-header navbar navbar-expand-lg  navbar-light navbar-expanded" id="home-nav">
       
+      
+
       <div class="container">
         <a class="navbar-brand" href="index.html">
         <img src="img/NTH_Logo.svg" alt="" />
-          <span class="logo-name">NEW TALENT HOME</span>
+          <!-- <span class="logo-name">NEW TALENT HOME</span> -->
         </a>
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,8 +77,8 @@
                 Courses
               </a>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="courses.html">Arts and Humanities</a>
                 <a class="dropdown-item" href="courses.html">Business</a>
+                <!-- <a class="dropdown-item" href="courses.html">Arts and Humanities</a>
                 <a class="dropdown-item" href="courses.html">Computer Science</a>
                 <a class="dropdown-item" href="courses.html">Data Science</a>
                 <a class="dropdown-item" href="courses.html">Information Technology</a>
@@ -82,7 +88,7 @@
                 <a class="dropdown-item" href="courses.html">Physical Science and Engineering</a>
                 <a class="dropdown-item" href="courses.html">Social Science</a>
                 <a class="dropdown-item" href="courses.html">Language Learning</a>
-                <a class="dropdown-item" href="courses.html">Degrees and Certificates</a>
+                <a class="dropdown-item" href="courses.html">Degrees and Certificates</a> -->
               </div>
             </li>
             <li><a href="courses.html">Corporate E-learning</a></li>
@@ -90,16 +96,16 @@
             <!-- Dropdown -->
             <!-- <li><a href="contacts.html">Contacts</a></li> -->
             
-            <li><a href="https://study.newtalenthome.com/login/index.php" id="sign-in-user">Sign In</a>
-            <!-- <a href="#" id="sign-in-user-name" style="display: none"></a> -->
+<!--             <li><a href="https://study.newtalenthome.com/login/index.php" id="sign-in-user">Sign In</a>
+ -->            <!-- <a href="#" id="sign-in-user-name" style="display: none"></a> -->
           </li>
 
            
             <li>
-              <button class="cart avd-share" >
+<!--               <button class="cart avd-share" >
                 <span class="lnr lnr-cart" id="shop-cart"></span>
               </button>
-            </li>
+ -->            </li>
           </ul>
         </div>
         <form class="search-container">
@@ -117,10 +123,10 @@
     <div class="container">
       <div class="row justify-content-center  align-items-center" style="height: 428px;">
         <div class="col-lg-5 col-md-8 home-banner-left">
-          <h1 class="text-white">
-            Home of Learning <br />
+          <h1 class="text-white" id="bannerText1">
+            A Home of Learning <br />
           </h1>
-          <p class="text-white"> <i>Learn From Anywhere, Anytime </i></p>
+          <p class="text-white" id="bannerText2"> <i>Learn From Anywhere, Anytime! </i></p>
           <!-- <p class="mx-auto text-white  mt-20 mb-40">
             In the history of modern astronomy, there is probably no one
             greater leap forward than the building and launch of the space
@@ -129,12 +135,44 @@
 
         </div>
         <div class="offset-lg-2 col-lg-5 col-md-12 home-banner-right">
-          <img class="img-fluid" src="img/header-img.png" alt="" />
+          <!-- <img class="img-fluid" src="img/header-img.png" alt="" /> -->
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/wFly2EW9NYM?autoplay=1" frameborder="0" allow="autoplay " allowfullscreen="0"></iframe>
         </div>
       </div>
     </div>
+    <div class="search-input" id="search-input-box" style="display: block;">
+     <div class="container">
+       <form class="d-flex justify-content-between">
+         
+         <span class="lnr-info"> <span class="alert-notify">Upcoming Workshop :</span> &nbsp;Advanced Excel Workshop <a
+             href="/upcoming_courses.html"><span class="alert-notify"> &nbsp;Learn More >> </span></a></span>
+         <span class="lnr lnr-cross" id="close-search" title="Close Search"></span>
+       </form>
+     </div>
+   </div>
   </section>
   <!-- ================ End banner Area ================= -->
+
+  <!-- Comming Soon Area -->
+  <div class="coming-soon">
+    <div class="container">
+      <h2>Upcoming Course</h2>
+      
+      <div id="coming-soon-video">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/835WpEBSt5s?start=0&end=254" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div id="coming-soon-info">
+        <p>
+          <h3>TDS E-Filing</h3>
+          As per section 90 of the Income Tax Act 2058, the country mandates to submit details of TDS deduction within 25 days of next month with the voucher. <br>
+In this short course you will learn <br>
+• how to File ETDS <br><br>
+This course is basically for all business Industries, who want to file to ETDS by self. 
+
+        </p>
+      </div>
+    </div>
+  </div>
 
   <!-- ================ Start Feature Area ================= -->
   <!-- <section class="feature-area">
@@ -179,17 +217,17 @@
   <!-- ================ End Feature Area ================= -->
 
   <!-- ================ Start Popular Course Area ================= -->
-  <section class="popular-course-area section-gap">
+  <!-- <section class="popular-course-area section-gap">
     <div class="container-fluid">
       <div class="row justify-content-center section-title">
         <div class="col-lg-12">
           <h2>
-            Popular Courses <br />
+            Our Courses <br />
           </h2>
-          <!-- <p>
+          <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p> -->
+          </p>
         </div>
       </div>
       <div class="owl-carousel popuar-course-carusel">
@@ -340,7 +378,7 @@
             Courses</button> </a>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <div class="login-container-wrapper ">
     <div class="login-container">
@@ -428,22 +466,21 @@
   <!-- ================ End Video Area ================= -->
 
   <!-- ================ Start Feature Area ================= -->
-  <section class="other-feature-area">
-    <div class="container">
+  <section class="other-feature-area" id="other-features-container">
+    <div class="container" >
       <div class="feature-inner row">
         <div class="col-lg-12">
           <div class="section-title text-left">
-            <!-- <h2>
-             Course  <br />
-              Features
-            </h2> -->
+            <h2 id="other-features-title">
+             Key Features
+            </h2>
            <!-- <p>
               
             </p> -->
           </div>
         </div>
     
-        <div class="col-lg-4 col-md-6 mt--260">
+        <div class="col-lg-4 col-md-6 ">
           <div class="other-feature-item">
             <i class="ti-briefcase"></i>
             <h4>Variety of Courses</h4>
@@ -454,7 +491,7 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6 mt--160">
+        <div class="col-lg-4 col-md-6 ">
           <div class="other-feature-item">
             <i class="ti-crown"></i>
             <h4>Expert Mentors</h4>
@@ -819,18 +856,18 @@
   </div>
   <!-- ================ start footer Area ================= -->
   <footer class="footer-area section-gap">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-2 col-md-6 single-footer-widget">
-					<h4>Quick Links</h4>
-					<ul>
-						<li></li>
-						<li><a href="about.html">About</a></li>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-2 col-md-6 single-footer-widget">
+          <h4>Quick Links</h4>
+          <ul>
+            <li></li>
+            <li><a href="about.html">About</a></li>
             <li><a href="courses.html">Courses</a></li>
             <li><a href="courses.html">Corporate E-learning</a></li>
-					</ul>
-				</div>
-				<div class="col-lg-2 col-md-6 single-footer-widget">
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6 single-footer-widget">
           <h4 class="footer-quick-link"> </h4>
           <ul>
             <li></li>
@@ -838,53 +875,53 @@
             <li><a href="#">Home</a></li>
             <li><a href="https://study.newtalenthome.com/login/index.php">Sign In</a></li>
           </ul>
-				
-				</div>
-				<div class="col-lg-2 col-md-6 single-footer-widget">
-					<h4 class="footer-quick-link"> </h4>
-					<ul>
-					  <li></li>
-					  <li><a href="terms_of_use.html">Terms</a></li>
-					  <li><a href="privacy_policy.html">Privacy Policy</a></li>
-					  <li data-toggle="modal" data-target="#exampleModalTest"><a>Join as a Trainer</a></li>
-					</ul>
-		
-				</div>
-				<div class="col-lg-2 col-md-6 single-footer-widget">
-					<!-- <h4>Resources</h4> -->
-				</div>
-				<div class="col-lg-4 col-md-6 single-footer-widget">
-					<h4>Newsletter</h4>
-					<p>You can trust us. we only send promo offers,</p>
-					<div class="form-wrap" id="mc_embed_signup">
-						<form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-						 method="get" class="form-inline">
-							<input class="form-control" name="EMAIL" placeholder="Your Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address '"
-							 required="" type="email">
-							<button class="click-btn btn btn-default text-uppercase">subscribe</button>
-							<div style="position: absolute; left: -5000px;">
-								<input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
-							</div>
+        
+        </div>
+        <div class="col-lg-2 col-md-6 single-footer-widget">
+          <h4 class="footer-quick-link"> </h4>
+          <ul>
+            <li></li>
+            <li><a href="terms_of_use.html">Terms</a></li>
+            <li><a href="privacy_policy.html">Privacy Policy</a></li>
+            <li data-toggle="modal" data-target="#exampleModalTest"><a>Join as a Trainer</a></li>
+          </ul>
+    
+        </div>
+        <div class="col-lg-2 col-md-6 single-footer-widget">
+          <!-- <h4>Resources</h4> -->
+        </div>
+        <div class="col-lg-4 col-md-6 single-footer-widget">
+          <h4>Newsletter</h4>
+          <p>You can trust us. we only send promo offers,</p>
+          <div class="form-wrap" id="mc_embed_signup">
+            <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+             method="get" class="form-inline">
+              <input class="form-control" name="EMAIL" placeholder="Your Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address '"
+               required="" type="email">
+              <button class="click-btn btn btn-default text-uppercase">subscribe</button>
+              <div style="position: absolute; left: -5000px;">
+                <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
+              </div>
 
-							<div class="info"></div>
-						</form>
-					</div>
-				</div>
-			</div>
-			<div class="footer-bottom row align-items-center">
-				<p class="footer-text m-0 col-lg-8 col-md-12">
+              <div class="info"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom row align-items-center">
+        <p class="footer-text m-0 col-lg-8 col-md-12">
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved  
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-				<div class="col-lg-4 col-md-12 footer-social">
-					<a href="https://www.facebook.com/OfficialNewTalentHome" target="_blank"><i class="fa fa-facebook"></i></a>
-					<a href="#"><i class="fa fa-twitter"></i></a>
-					<a href="#"><i class="fa fa-dribbble"></i></a>
-					<a href="#"><i class="fa fa-behance"></i></a>
-				</div>
-			</div>
-		</div>
-	</footer>
+        <div class="col-lg-4 col-md-12 footer-social">
+          <a href="https://www.facebook.com/OfficialNewTalentHome" target="_blank"><i class="fa fa-facebook"></i></a>
+          <a href="#"><i class="fa fa-twitter"></i></a>
+          <a href="#"><i class="fa fa-dribbble"></i></a>
+          <a href="#"><i class="fa fa-behance"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
   <!-- ================ End footer Area ================= -->
 
   <script src="js/vendor/jquery-2.2.4.min.js"></script>
